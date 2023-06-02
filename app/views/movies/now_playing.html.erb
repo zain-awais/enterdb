@@ -1,0 +1,18 @@
+<h1>Best Movies Now Playing</h1>
+<p>Presented by EnterDB</p>
+
+<div class="row">
+  <% @now_play.each do |n_play| %>
+    <div class="col-md-2">
+      <div class="card mb-4" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Title: <%= n_play["title"] %> </h5>
+            <h5 class="card-title">Rating: <%= n_play["vote_average"] %> </h5>
+            <p class="card-text"><%= n_play["overview"] %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
