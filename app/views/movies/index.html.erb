@@ -1,2 +1,34 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1 class="chip-container">Movies & Shows</h1>
+<p class="chip-container"> Presented by EnterDB</p>
+
+<div class="btn-group chip-container" role="group" aria-label="Chips">
+ <% @genres.each do |genre| %>
+    <%= button_tag(type: 'button', class: 'btn btn-outline-secondary') do %>
+        <%= link_to movies_genre_path(keyword: genre.name) do %>
+            <%= genre.name %>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-md-2">
+      <div class="card mb-4" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Title: <%= movie["title"] %> </h5>
+            <h5 class="card-title">Rating: <%= movie["vote_average"] %> </h5>
+            <p class="card-text"><%= movie["overview"] %></p>
+            <a href="#" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+  .chip-container {
+    padding: 10px;
+  }
+</style>

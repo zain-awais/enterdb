@@ -1,15 +1,15 @@
-<h1>Popular Movies</h1>
-<p>Presented by EnterDB</p>
+<h1>Movies</h1>
+<p>Genre Keyword: <%= params[:keyword] %> </p>
 
 <div class="row">
-  <% @popular.each do |pop_movie| %>
+  <% @result.each do |movie| %>
     <div class="col-md-2">
       <div class="card mb-4" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Title: <%= pop_movie["title"] %> </h5>
-            <h5 class="card-title">Rating: <%= pop_movie["vote_average"] %> </h5>
-            <p class="card-text"><%= pop_movie["overview"] %></p>
+            <h5 class="card-title">Title: <%= movie["title"] %> </h5>
+            <h5 class="card-title">Rating: <%= movie["vote_average"] %> </h5>
+            <p class="card-text"><%= movie["overview"] %></p>
             <a href="#" class="btn btn-primary">Details</a>
         </div>
       </div>
