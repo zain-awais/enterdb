@@ -4,7 +4,7 @@
 <div class="btn-group chip-container" role="group" aria-label="Chips">
  <% @genres.each do |genre| %>
     <%= button_tag(type: 'button', class: 'btn btn-outline-secondary') do %>
-        <%= link_to movies_genre_path(keyword: genre.name) do %>
+        <%= link_to genre_movies_path(keyword: genre.name) do %>
             <%= genre.name %>
         <% end %>
     <% end %>
