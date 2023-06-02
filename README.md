@@ -1,24 +1,61 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Movie Data Fetching
 
-Things you may want to cover:
+This repository contains code for fetching data from the Movies API and storing it in the Rails application's database. The following rake tasks are available for this purpose:
 
-* Ruby version
+## Rails Command
 
-* System dependencies
+```
+rails db:create
+```
+```
+rails db:migrate
+```
+```
+bundle install
+```
 
-* Configuration
+## Rake Tasks
 
-* Database creation
+```
+rails store_movie_genre:fetch_data
+```
 
-* Database initialization
+This rake task fetches movie genres from the Movies API and stores them in the database. It ensures that the genres are up-to-date and can be used for categorizing movies.
 
-* How to run the test suite
+To run this task, use the following command:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails store_api_response_in_movies:fetch_data
+```
 
-* Deployment instructions
+## Start Server
 
-* ...
+```
+rails s
+```
+
+## Start Up with Docker
+
+```
+docker compose build
+```
+After finish Build for initialize Postgres Container
+```
+docker compose up
+```
+for starting postgres container replace host: name from `localhost` to `db`
+like this
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: newuser
+  password: password
+  host: db
+  port: 5432
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+```
