@@ -4,7 +4,6 @@ namespace :store_movie_genre do
         
         require_relative '../../app/services/api_service'
 
-        byebug
         response = APIService.get_data("/3/genre/movie/list")
         genre_data = response["genres"]
 
