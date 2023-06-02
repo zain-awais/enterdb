@@ -1,1 +1,24 @@
-<h1>HELLO</h1>
+<h1>Movies</h1>
+<p>Search Keyword: <%= params[:query] %> </p>
+
+<div class="row">
+  <% if @search_result.nil? %>
+    <p>No movie found with this keyword</p>
+  <% else %>
+    <% @search_result.each do |movie| %>
+      <div class="col-md-2">
+        <div class="card mb-4" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title">Title: <%= movie["title"] %> </h5>
+              <h5 class="card-title">Rating: <%= movie["vote_average"] %> </h5>
+              <p class="card-text"><%= movie["overview"] %></p>
+              <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+

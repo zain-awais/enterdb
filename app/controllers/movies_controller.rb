@@ -23,8 +23,13 @@ class MoviesController < ApplicationController
   end
 
   def search
-    response = APIService.get_data("/3/search/keyword?query=#{param["search"]}")
-    @search_result = response["results"]
+    if params[:query]
+      @search_result = Movie.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @search_result = Movie.all
+    end
+    # response = APIService.get_data("/3/search/keyword?query=#{param["query"]}")
+    # @search_result = response["results"]
   end
 
   def genre

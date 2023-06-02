@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :top_rated
       get :popular
       get :genre
+      get :search
     end
   end
   

@@ -45,6 +45,9 @@ gem 'byebug'
 
 gem 'httparty'
 
+gem 'pg_search'
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
